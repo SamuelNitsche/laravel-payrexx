@@ -2,9 +2,9 @@
 
 namespace SamuelNitsche\LaravelPayrexx\Events;
 
+use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 use SamuelNitsche\LaravelPayrexx\Payment;
-use Illuminate\Foundation\Events\Dispatchable;
 
 class PaymentReceived
 {

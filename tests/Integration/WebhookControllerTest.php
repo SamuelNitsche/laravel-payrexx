@@ -3,11 +3,11 @@
 namespace SamuelNitsche\LaravelPayrexx\Tests\Integration;
 
 use Illuminate\Support\Facades\Event;
-use SamuelNitsche\LaravelPayrexx\Payment;
-use SamuelNitsche\LaravelPayrexx\Tests\TestCase;
+use SamuelNitsche\LaravelPayrexx\Events\PaymentReceived;
 use SamuelNitsche\LaravelPayrexx\Events\WebhookHandled;
 use SamuelNitsche\LaravelPayrexx\Events\WebhookReceived;
-use SamuelNitsche\LaravelPayrexx\Events\PaymentReceived;
+use SamuelNitsche\LaravelPayrexx\Payment;
+use SamuelNitsche\LaravelPayrexx\Tests\TestCase;
 
 class WebhookControllerTest extends TestCase
 {

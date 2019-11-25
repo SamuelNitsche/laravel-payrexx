@@ -2,8 +2,8 @@
 
 namespace SamuelNitsche\LaravelPayrexx;
 
-use Illuminate\Foundation\Auth\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User;
 use Money\Currencies\ISOCurrencies;
 use Money\Currency;
 use Money\Formatter\IntlMoneyFormatter;
@@ -36,7 +36,7 @@ class Payment extends Model
 
         return $moneyFormatter->format($money);
     }
-    
+
     public function isConfirmed()
     {
         return $this->status === Payment::STATUS_CONFIRMED;
