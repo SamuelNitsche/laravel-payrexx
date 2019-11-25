@@ -4,8 +4,8 @@ namespace SamuelNitsche\LaravelPayrexx\Tests;
 
 use Illuminate\Database\Eloquent\Model as Eloquent;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
-use SamuelNitsche\LaravelPayrexx\Tests\Fixtures\User;
 use SamuelNitsche\LaravelPayrexx\PayrexxServiceProvider;
+use SamuelNitsche\LaravelPayrexx\Tests\Fixtures\User;
 
 abstract class TestCase extends OrchestraTestCase
 {
