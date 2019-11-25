@@ -18,10 +18,10 @@ class PayrexxServiceProvider extends ServiceProvider
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../config/config.php' => config_path('config.php'),
+                __DIR__.'/../config/config.php' => config_path('config.php'),
             ], 'config');
 
-            $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+            $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
 
             /*
             $this->loadViewsFrom(__DIR__.'/../resources/views', 'payrexx');
@@ -38,6 +38,6 @@ class PayrexxServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'payrexx');
+        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'payrexx');
     }
 }
