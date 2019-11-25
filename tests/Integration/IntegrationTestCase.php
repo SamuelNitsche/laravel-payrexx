@@ -3,8 +3,8 @@
 namespace SamuelNitsche\LaravelPayrexx\Tests\Integration;
 
 use Illuminate\Database\Eloquent\Model as Eloquent;
-use SamuelNitsche\LaravelPayrexx\Tests\TestCase;
 use SamuelNitsche\LaravelPayrexx\Tests\Fixtures\User;
+use SamuelNitsche\LaravelPayrexx\Tests\TestCase;
 
 abstract class IntegrationTestCase extends TestCase
 {
@@ -32,7 +32,7 @@ abstract class IntegrationTestCase extends TestCase
     public function createUser(): User
     {
         return User::create([
-            'email' => "mail@samynitsche.de",
+            'email' => 'mail@samynitsche.de',
             'name' => 'John Doe',
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
         ]);

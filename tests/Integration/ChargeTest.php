@@ -5,7 +5,7 @@ namespace SamuelNitsche\LaravelPayrexx\Tests\Integration;
 class ChargeTest extends IntegrationTestCase
 {
     /** @test */
-    function it_can_create_one_off_charges()
+    public function it_can_create_one_off_charges()
     {
         $user = $this->createUser();
 
