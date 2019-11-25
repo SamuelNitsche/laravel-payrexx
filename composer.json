@@ -1,35 +1,38 @@
 {
-    "name": "spatie/laravel-payrexx",
+    "name": "samuelnitsche/laravel-payrexx",
     "description": "Cashier like api for processing payments with payrexx",
     "keywords": [
-        "spatie",
         "laravel-payrexx"
     ],
-    "homepage": "https://github.com/spatie/laravel-payrexx",
+    "homepage": "https://github.com/SamuelNitsche/laravel-payrexx",
     "license": "MIT",
     "authors": [
         {
             "name": "Samuel Nitsche",
             "email": "mail@samynitsche.de",
-            "homepage": "https://spatie.be",
+            "homepage": "https://samynitsche.de",
             "role": "Developer"
         }
     ],
     "require": {
-        "php": "^7.3"
+        "php": "^7.3",
+        "illuminate/database": "~5.8.0|^6.0",
+        "illuminate/support": "~5.8.0|^6.0",
+        "moneyphp/money": "^3.2",
+        "payrexx/payrexx": "^1.6"
     },
     "require-dev": {
-        "symfony/var-dumper": "^4.3",
+        "orchestra/testbench": "~3.8.0|^4.0",
         "phpunit/phpunit": "^8.2"
     },
     "autoload": {
         "psr-4": {
-            "Spatie\\Skeleton\\": "src"
+            "SamuelNitsche\\LaravelPayrexx\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Spatie\\Skeleton\\Tests\\": "tests"
+            "SamuelNitsche\\LaravelPayrexx\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -42,10 +45,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Spatie\\Skeleton\\SkeletonServiceProvider"
+                "SamuelNitsche\\LaravelPayrexx\\PayrexxServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "Spatie\\Skeleton\\SkeletonFacade"
+                "Payrexx": "SamuelNitsche\\LaravelPayrexx\\PayrexxFacade"
             }
         }
     }
