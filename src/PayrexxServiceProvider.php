@@ -2,6 +2,7 @@
 
 namespace SamuelNitsche\LaravelPayrexx;
 
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Payrexx\Payrexx;
 
@@ -12,25 +13,16 @@ class PayrexxServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->app->singleton('payrexx', function ($app) {
-            return new Payrexx(config('payrexx.instance_name'), config('payrexx.api_secret'));
-        });
+        $this->registerPayrexx();
+        $this->registerPublishing();
+        $this->registerMigrations();
+        $this->registerRoutes();
 
-        if ($this->app->runningInConsole()) {
-            $this->publishes([
-                __DIR__.'/../config/config.php' => config_path('config.php'),
-            ], 'config');
+        /*
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'payrexx');
 
-            $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
 
-            /*
-            $this->loadViewsFrom(__DIR__.'/../resources/views', 'payrexx');
-
-            $this->publishes([
-                __DIR__.'/../resources/views' => base_path('resources/views/vendor/payrexx'),
-            ], 'views');
-            */
-        }
+        */
     }
 
     /**
@@ -38,6 +30,49 @@ class PayrexxServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'payrexx');
+        $this->configure();
+    }
+
+    protected function registerPayrexx(): void
+    {
+        $this->app->singleton('payrexx', function ($app) {
+            return new Payrexx(config('payrexx.instance_name'), config('payrexx.api_secret'));
+        });
+    }
+
+    protected function configure(): void
+    {
+        $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'payrexx');
+    }
+
+    public function registerPublishing(): void
+    {
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__ . '/../config/config.php' => config_path('config.php'),
+            ], 'config');
+
+            // $this->publishes([
+            //      __DIR__.'/../resources/views' => base_path('resources/views/vendor/payrexx'),
+            // ], 'views');
+        }
+    }
+
+    public function registerMigrations(): void
+    {
+        if ($this->app->runningInConsole()) {
+            $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+        }
+    }
+
+    protected function registerRoutes()
+    {
+        Route::group([
+            'prefix' => config('payrexx.path', 'payrexx'),
+            'namespace' => 'SamuelNitsche\LaravelPayrexx\Http\Controllers',
+            'as' => 'payrexx.',
+        ], function () {
+            $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
+        });
     }
 }
