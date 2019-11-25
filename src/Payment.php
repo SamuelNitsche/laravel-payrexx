@@ -20,7 +20,7 @@ class Payment extends Model
     {
         $money = new Money($this->rawAmount(), new Currency('CHF'));
         $numberFormatter = new NumberFormatter('de_CH', NumberFormatter::CURRENCY);
-        $moneyFormatter = new IntlMoneyFormatter($numberFormatter, new ISOCurrencies());
+        $moneyFormatter = new IntlMoneyFormatter($numberFormatter, new ISOCurrencies);
 
         return $moneyFormatter->format($money);
     }

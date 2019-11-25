@@ -19,7 +19,8 @@
         "illuminate/database": "~5.8.0|^6.0",
         "illuminate/support": "~5.8.0|^6.0",
         "moneyphp/money": "^3.2",
-        "payrexx/payrexx": "^1.6"
+        "payrexx/payrexx": "^1.6",
+        "ext-intl": "*"
     },
     "require-dev": {
         "orchestra/testbench": "~3.8.0|^4.0",

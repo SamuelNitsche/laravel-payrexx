@@ -9,15 +9,13 @@ class ChargeTest extends IntegrationTestCase
     {
         $user = $this->createUser();
 
-        $response = $user->charge(500);
+        $payment = $user->charge(500);
 
         $this->assertDatabaseHas('payments', [
             'user_id' => $user->id,
-            'payrexx_id' => $response->payrexx_id,
+            'payrexx_id' => $payment->payrexx_id,
             'status' => 'waiting',
             'amount' => 500,
         ]);
-        $this->assertEquals(500, $response->rawAmount());
-        $this->assertEquals('CHF 5.00', $response->amount());
     }
 }
