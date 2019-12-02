@@ -10,7 +10,7 @@
          processIsolation="false"
          stopOnFailure="false">
     <testsuites>
-        <testsuite name="Spatie Test Suite">
+        <testsuite name="Payrexx Test Suite">
             <directory>tests</directory>
         </testsuite>
     </testsuites>
@@ -26,4 +26,8 @@
         <log type="coverage-text" target="build/coverage.txt"/>
         <log type="coverage-clover" target="build/logs/clover.xml"/>
     </logging>
+    <php>
+        <env name="PAYREXX_INSTANCE_NAME" value=""/>
+        <env name="PAYREXX_API_SECRET" value=""/>
+    </php>
 </phpunit>
